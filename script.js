@@ -12,6 +12,13 @@ mobileMenuToggle.addEventListener('click', () => {
     mobileMenuToggle.classList.toggle('active');
     navMenu.classList.toggle('active');
     mobileMenuToggle.setAttribute('aria-expanded', !isExpanded);
+    
+    // Prevent body scrolling when menu is open
+    if (navMenu.classList.contains('active')) {
+        document.body.style.overflow = 'hidden';
+    } else {
+        document.body.style.overflow = '';
+    }
 });
 
 // Close mobile menu when clicking on a link
@@ -20,7 +27,20 @@ document.querySelectorAll('.nav-menu a').forEach(link => {
         mobileMenuToggle.classList.remove('active');
         navMenu.classList.remove('active');
         mobileMenuToggle.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = ''; // Reset body overflow
     });
+});
+
+// Close mobile menu when clicking outside
+document.addEventListener('click', (e) => {
+    if (navMenu.classList.contains('active') && 
+        !navMenu.contains(e.target) && 
+        !mobileMenuToggle.contains(e.target)) {
+        mobileMenuToggle.classList.remove('active');
+        navMenu.classList.remove('active');
+        mobileMenuToggle.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+    }
 });
 
 // Enhanced smooth scrolling for navigation links
@@ -210,6 +230,7 @@ function initializeKeyboardNavigation() {
             mobileMenuToggle.classList.remove('active');
             navMenu.classList.remove('active');
             mobileMenuToggle.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
         }
         
         // Alt + T for theme toggle
@@ -248,6 +269,9 @@ document.addEventListener('DOMContentLoaded', () => {
     initializeTheme();
     initializeScrollAnimations();
     initializeKeyboardNavigation();
+    initializeDeviceFeatures();
+    initializeLazyLoading();
+    optimizeForMobile();
     
     // Start typing effect after a delay
     setTimeout(typeWriter, 1000);
@@ -266,13 +290,28 @@ window.addEventListener('load', () => {
 });
 
 // Handle resize events
+let resizeTimer;
 window.addEventListener('resize', () => {
-    // Close mobile menu on resize
-    if (window.innerWidth > 768) {
-        mobileMenuToggle.classList.remove('active');
-        navMenu.classList.remove('active');
-        mobileMenuToggle.setAttribute('aria-expanded', 'false');
-    }
+    // Debounce resize events for performance
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+        // Close mobile menu on resize to larger screens
+        if (window.innerWidth > 767) {
+            mobileMenuToggle.classList.remove('active');
+            navMenu.classList.remove('active');
+            mobileMenuToggle.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = ''; // Reset body overflow
+        }
+        
+        // Reset any transform effects on window resize
+        const parallax = document.querySelector('.hero');
+        if (parallax && window.innerWidth <= 768) {
+            parallax.style.transform = 'none';
+        }
+        
+        // Recalculate scroll positions for active nav links
+        updateActiveNavLink();
+    }, 250);
 });
 
 // Prefers-color-scheme change detection
@@ -298,3 +337,111 @@ document.querySelectorAll('.project-link, .email-link, .social-link').forEach(el
         this.style.transform = this.style.transform.replace(' translateY(-2px)', '');
     });
 });
+
+// Touch-friendly enhancements for mobile devices
+function initializeTouchSupport() {
+    // Add touch feedback for buttons
+    const touchElements = document.querySelectorAll('.project-link, .email-link, .social-link, .skill-tag, .mobile-menu-toggle, .scroll-to-top, .theme-toggle');
+    
+    touchElements.forEach(element => {
+        element.addEventListener('touchstart', function() {
+            this.style.opacity = '0.8';
+        });
+        
+        element.addEventListener('touchend', function() {
+            this.style.opacity = '';
+        });
+        
+        element.addEventListener('touchcancel', function() {
+            this.style.opacity = '';
+        });
+    });
+    
+    // Prevent zoom on double tap for iOS
+    let lastTouchEnd = 0;
+    document.addEventListener('touchend', function (event) {
+        const now = (new Date()).getTime();
+        if (now - lastTouchEnd <= 300) {
+            event.preventDefault();
+        }
+        lastTouchEnd = now;
+    }, false);
+}
+
+// Initialize device-specific features
+function initializeDeviceFeatures() {
+    // Check if device supports touch
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    
+    if (isTouchDevice) {
+        document.body.classList.add('touch-device');
+        initializeTouchSupport();
+        
+        // Disable parallax on touch devices for better performance
+        const parallax = document.querySelector('.hero');
+        if (parallax) {
+            parallax.style.transform = 'none';
+        }
+    }
+    
+    // Add class for small screens
+    if (window.innerWidth <= 768) {
+        document.body.classList.add('mobile-device');
+    }
+    
+    // Handle orientation changes
+    window.addEventListener('orientationchange', () => {
+        setTimeout(() => {
+            // Force a resize event to recalculate layout
+            window.dispatchEvent(new Event('resize'));
+            
+            // Close mobile menu on orientation change
+            if (navMenu.classList.contains('active')) {
+                mobileMenuToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+                mobileMenuToggle.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+            }
+        }, 100);
+    });
+}
+
+// Optimize scroll performance for mobile
+function optimizeForMobile() {
+    // Reduce scroll animations on low-end devices
+    const isLowEndDevice = navigator.hardwareConcurrency <= 2 || window.devicePixelRatio <= 1;
+    
+    if (isLowEndDevice) {
+        document.body.classList.add('reduced-motion');
+        
+        // Disable complex animations
+        const styleSheet = document.createElement('style');
+        styleSheet.textContent = `
+            .reduced-motion * {
+                transition-duration: 0.1s !important;
+                animation-duration: 0.1s !important;
+            }
+        `;
+        document.head.appendChild(styleSheet);
+    }
+}
+
+// Lazy loading for performance
+function initializeLazyLoading() {
+    const lazyElements = document.querySelectorAll('.project-card, .skill-category');
+    
+    const lazyObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('loaded');
+                lazyObserver.unobserve(entry.target);
+            }
+        });
+    }, {
+        rootMargin: '50px'
+    });
+    
+    lazyElements.forEach(element => {
+        lazyObserver.observe(element);
+    });
+}
