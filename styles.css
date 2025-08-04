@@ -206,8 +206,6 @@ html {
 /* Hero Section */
 .hero {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    background-size: 400% 400%;
-    animation: gradientShift 8s ease infinite;
     color: white;
     min-height: 100vh;
     display: flex;
@@ -268,23 +266,12 @@ html {
     background: #fff;
     border: 6px solid rgba(255, 255, 255, 0.3);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-    animation: fadeInUp 1s ease 0.6s both, float 3s ease-in-out infinite;
+    animation: fadeInUp 1s ease 0.6s both;
     transition: transform 0.3s ease;
 }
 
 .profile-image:hover {
     transform: scale(1.05);
-}
-
-@keyframes gradientShift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-@keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
 }
 
 /* Section Styles */
