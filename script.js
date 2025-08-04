@@ -43,7 +43,7 @@ document.addEventListener('click', (e) => {
     }
 });
 
-// Enhanced smooth scrolling for navigation links
+// Enhanced smooth scrolling for navigation links (for single page sections)
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -63,6 +63,20 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             setTimeout(() => {
                 target.style.animation = 'fadeInUp 0.6s ease';
             }, 100);
+        }
+    });
+});
+
+// Page navigation handling
+document.querySelectorAll('.nav-menu a:not([href^="#"])').forEach(link => {
+    link.addEventListener('click', function(e) {
+        // For page navigation, let the browser handle it normally
+        // Close mobile menu if open
+        if (navMenu.classList.contains('active')) {
+            mobileMenuToggle.classList.remove('active');
+            navMenu.classList.remove('active');
+            mobileMenuToggle.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
         }
     });
 });
