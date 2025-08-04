@@ -140,6 +140,7 @@ nav {
 .touch-device .project-card:hover,
 .touch-device .skill-category:hover,
 .touch-device .achievements:hover,
+.touch-device .education-counter:hover,
 .touch-device .social-link:hover {
     transform: none;
 }
@@ -593,7 +594,8 @@ section {
     color: #4a5568;
 }
 
-.achievements {
+.achievements,
+.education-counter {
     background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(10px);
     padding: 2.5rem;
@@ -603,16 +605,73 @@ section {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.achievements:hover {
+.achievements:hover,
+.education-counter:hover {
     transform: translateY(-5px);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
 
-.achievements h3 {
+.achievements h3,
+.education-counter h3 {
     font-family: 'Poppins', sans-serif;
     margin-bottom: 1.5rem;
     color: #1a202c;
     font-weight: 600;
+}
+
+.education-item {
+    margin-bottom: 1.5rem;
+    padding: 1.2rem;
+    background: rgba(79, 70, 229, 0.05);
+    border-radius: 12px;
+    border-left: 4px solid #4f46e5;
+    transition: all 0.3s ease;
+}
+
+.education-item:hover {
+    background: rgba(79, 70, 229, 0.1);
+    transform: translateX(5px);
+}
+
+.education-item:last-child {
+    margin-bottom: 0;
+}
+
+.education-level {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.5rem;
+}
+
+.education-level .degree {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #1a202c;
+    margin-bottom: 0.25rem;
+}
+
+.education-level .field {
+    font-size: 0.9rem;
+    color: #4f46e5;
+    font-weight: 500;
+}
+
+.education-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.education-details .institution {
+    font-size: 0.95rem;
+    color: #4a5568;
+    font-weight: 500;
+}
+
+.education-details .year {
+    font-size: 0.85rem;
+    color: #718096;
+    font-weight: 400;
 }
 
 .achievements ul {
@@ -1005,9 +1064,39 @@ body.dark-mode .about-text p {
     color: #cbd5e1;
 }
 
-body.dark-mode .achievements {
+body.dark-mode .achievements,
+body.dark-mode .education-counter {
     background: rgba(30, 41, 59, 0.8);
     border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .education-counter h3 {
+    color: #f1f5f9;
+}
+
+body.dark-mode .education-item {
+    background: rgba(79, 70, 229, 0.15);
+    border-left-color: #6366f1;
+}
+
+body.dark-mode .education-item:hover {
+    background: rgba(79, 70, 229, 0.25);
+}
+
+body.dark-mode .education-level .degree {
+    color: #f1f5f9;
+}
+
+body.dark-mode .education-level .field {
+    color: #818cf8;
+}
+
+body.dark-mode .education-details .institution {
+    color: #cbd5e1;
+}
+
+body.dark-mode .education-details .year {
+    color: #94a3b8;
 }
 
 body.dark-mode .achievements h3 {
@@ -1436,7 +1525,8 @@ body.dark-mode .inline-link:hover {
         text-align: center;
     }
     
-    .achievements {
+    .achievements,
+    .education-counter {
         margin: 0 auto;
         max-width: 500px;
     }
@@ -1581,11 +1671,13 @@ body.dark-mode .inline-link:hover {
         margin-bottom: 1.2rem;
     }
     
-    .achievements {
+    .achievements,
+    .education-counter {
         padding: 2rem 1.5rem;
     }
     
-    .achievements h3 {
+    .achievements h3,
+    .education-counter h3 {
         text-align: center;
         margin-bottom: 1.2rem;
     }
@@ -1814,11 +1906,13 @@ body.dark-mode .inline-link:hover {
         line-height: 1.6;
     }
     
-    .achievements {
+    .achievements,
+    .education-counter {
         padding: 1.5rem 1rem;
     }
     
-    .achievements h3 {
+    .achievements h3,
+    .education-counter h3 {
         font-size: 1.1rem;
         text-align: center;
         margin-bottom: 1rem;
@@ -1827,6 +1921,27 @@ body.dark-mode .inline-link:hover {
     .achievements li {
         font-size: 0.9rem;
         padding: 0.6rem 0;
+    }
+
+    .education-item {
+        margin-bottom: 1rem;
+        padding: 1rem;
+    }
+
+    .education-level .degree {
+        font-size: 1rem;
+    }
+
+    .education-level .field {
+        font-size: 0.85rem;
+    }
+
+    .education-details .institution {
+        font-size: 0.9rem;
+    }
+
+    .education-details .year {
+        font-size: 0.8rem;
     }
 
     .skills-grid {
@@ -2002,7 +2117,8 @@ body.dark-mode .inline-link:hover {
         font-size: 0.9rem;
     }
     
-    .achievements {
+    .achievements,
+    .education-counter {
         padding: 1.2rem 0.8rem;
     }
     
@@ -2133,7 +2249,8 @@ body.dark-mode .nav-menu a:hover {
     
     .project-card,
     .skill-category,
-    .achievements {
+    .achievements,
+    .education-counter {
         break-inside: avoid;
         page-break-inside: avoid;
     }
