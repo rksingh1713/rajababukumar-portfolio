@@ -236,8 +236,8 @@ html {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    padding-top: 5vh;
-    padding-bottom: 5vh;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
 }
 
 .hero-content h1 {
@@ -1216,6 +1216,71 @@ body.dark-mode .inline-link:hover {
     }
 }
 
+/* 15-16 inch Laptops (1440px - 1600px) */
+@media (min-width: 1440px) and (max-width: 1600px) {
+    .container {
+        max-width: 1400px;
+        padding: 0 40px;
+    }
+    
+    /* Optimized spacing for 15-16 inch laptops */
+    .hero-content {
+        padding-top: 18vh !important;
+        padding-bottom: 12vh !important;
+    }
+    
+    .hero-content h1 {
+        font-size: clamp(4rem, 6vw, 4.8rem);
+        margin-bottom: 2.2rem;
+    }
+    
+    .hero-content .tagline {
+        font-size: clamp(1.5rem, 3vw, 1.7rem);
+        margin-bottom: 3.5rem;
+    }
+    
+    .profile-image {
+        width: clamp(240px, 20vw, 280px);
+        height: clamp(240px, 20vw, 280px);
+        margin: 3.5rem auto;
+    }
+    
+    .skills-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 3rem;
+    }
+    
+    .projects-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 3rem;
+    }
+    
+    section {
+        padding: 110px 0;
+    }
+}
+
+/* Common Laptop Resolutions (1366px - 1920px) */
+@media (min-width: 1366px) and (max-width: 1919px) {
+    .hero-content {
+        padding-top: 20vh !important;
+        padding-bottom: 15vh !important;
+        transform: translateY(-5vh);
+    }
+    
+    .hero-content h1 {
+        margin-bottom: 2rem;
+    }
+    
+    .hero-content .tagline {
+        margin-bottom: 3rem;
+    }
+    
+    .profile-image {
+        margin: 3rem auto;
+    }
+}
+
 /* Ultra-Wide and Very Large Monitors (1920px+) */
 @media (min-width: 1920px) {
     .container {
@@ -1267,6 +1332,28 @@ body.dark-mode .inline-link:hover {
         padding: 0 30px;
     }
     
+    /* Improved Visual Balance for 13-16 inch Laptops */
+    .hero-content {
+        padding-top: 15vh !important;
+        padding-bottom: 10vh !important;
+    }
+    
+    .hero-content h1 {
+        font-size: clamp(3.5rem, 5vw, 4.2rem);
+        margin-bottom: 2rem;
+    }
+    
+    .hero-content .tagline {
+        font-size: clamp(1.3rem, 2.5vw, 1.5rem);
+        margin-bottom: 3rem;
+    }
+    
+    .profile-image {
+        width: clamp(210px, 18vw, 240px);
+        height: clamp(210px, 18vw, 240px);
+        margin: 3rem auto;
+    }
+    
     .skills-grid {
         grid-template-columns: repeat(3, 1fr);
         gap: 2.5rem;
@@ -1285,17 +1372,26 @@ body.dark-mode .inline-link:hover {
         padding: 0 30px;
     }
     
+    /* Better spacing for smaller laptops */
+    .hero-content {
+        padding-top: 12vh !important;
+        padding-bottom: 8vh !important;
+    }
+    
     .hero-content h1 {
-        font-size: 3.5rem;
+        font-size: 3.2rem;
+        margin-bottom: 1.8rem;
     }
     
     .hero-content .tagline {
-        font-size: 1.3rem;
+        font-size: 1.25rem;
+        margin-bottom: 2.8rem;
     }
     
     .profile-image {
-        width: 200px;
-        height: 200px;
+        width: 190px;
+        height: 190px;
+        margin: 2.5rem auto;
     }
     
     .skills-grid {
