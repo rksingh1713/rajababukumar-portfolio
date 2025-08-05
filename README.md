@@ -207,7 +207,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📞 Contact
 
 **Rajababu Kumar**
-- Email: [rajababu.kumar@email.com](mailto:rajababu.kumar@email.com)
+- Email: [rksinghbth500@gmail.com](mailto:rksinghbth500@gmail.com)
+- Phone: [+91 9931407321](tel:+919931407321)
 - LinkedIn: [linkedin.com/in/rksingh1713](https://www.linkedin.com/in/rksingh1713)
 - GitHub: [github.com/rksingh1713](https://github.com/rksingh1713)
 - Portfolio: [rajababukumar.dev](https://rajababukumar.dev)

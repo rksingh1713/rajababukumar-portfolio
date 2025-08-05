@@ -146,7 +146,8 @@ nav {
 }
 
 .touch-device .project-link:hover,
-.touch-device .email-link:hover {
+.touch-device .email-link:hover,
+.touch-device .phone-link:hover {
     transform: none;
     box-shadow: 0 5px 15px rgba(79, 70, 229, 0.2);
 }
@@ -158,6 +159,7 @@ nav {
 .nav-menu a:focus,
 .project-link:focus,
 .email-link:focus,
+.phone-link:focus,
 .social-link:focus {
     outline: 2px solid #4f46e5;
     outline-offset: 2px;
@@ -1049,6 +1051,26 @@ section {
     color: white;
     transform: translateY(-2px);
     box-shadow: 0 10px 25px rgba(79, 70, 229, 0.3);
+}
+
+.phone-link {
+    font-size: 1.3rem;
+    color: #059669;
+    text-decoration: none;
+    margin-bottom: 3rem;
+    display: inline-block;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    padding: 1rem 2rem;
+    border: 2px solid #059669;
+    border-radius: 10px;
+}
+
+.phone-link:hover {
+    background: #059669;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(5, 150, 105, 0.3);
 }
 
 .social-links {
@@ -2048,6 +2070,12 @@ body.dark-mode .inline-link:hover {
         margin-bottom: 2.5rem;
     }
 
+    .phone-link {
+        font-size: 1.1rem;
+        padding: 0.8rem 1.5rem;
+        margin-bottom: 2.5rem;
+    }
+
     .social-links {
         gap: 1rem;
         justify-content: center;
@@ -2381,6 +2409,14 @@ body.dark-mode .inline-link:hover {
         text-align: center;
     }
 
+    .phone-link {
+        font-size: 1rem;
+        padding: 0.7rem 1.2rem;
+        margin-bottom: 2rem;
+        display: block;
+        text-align: center;
+    }
+
     .social-links {
         gap: 0.8rem;
         justify-content: center;
@@ -2502,6 +2538,11 @@ body.dark-mode .inline-link:hover {
     }
     
     .email-link {
+        font-size: 0.9rem;
+        padding: 0.6rem 1rem;
+    }
+
+    .phone-link {
         font-size: 0.9rem;
         padding: 0.6rem 1rem;
     }
