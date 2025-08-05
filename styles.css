@@ -218,6 +218,7 @@ html {
     margin-top: 0;
     margin-bottom: 0;
     padding: 0 20px;
+    transform: translateZ(0);
 }
 
 .hero::before {
@@ -236,8 +237,11 @@ html {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    padding-top: 2vh;
-    padding-bottom: 2vh;
+    padding: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .hero-content h1 {
@@ -270,6 +274,14 @@ html {
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
     animation: fadeInUp 1s ease 0.6s both;
     transition: transform 0.3s ease;
+    position: relative;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transform: translateZ(0);
+    will-change: transform;
 }
 
 .profile-image:hover {
@@ -583,6 +595,107 @@ section {
     align-items: start;
 }
 
+.professional-info {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.professional-info:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.professional-info h3 {
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 1.5rem;
+    color: #1a202c;
+    font-weight: 600;
+}
+
+.position-item {
+    margin-bottom: 2rem;
+    padding: 1.2rem;
+    background: rgba(34, 197, 94, 0.05);
+    border-radius: 12px;
+    border-left: 4px solid #22c55e;
+    transition: all 0.3s ease;
+}
+
+.position-item:hover {
+    background: rgba(34, 197, 94, 0.1);
+    transform: translateX(5px);
+}
+
+.position-title {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.5rem;
+}
+
+.position-title .role {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #1a202c;
+    margin-bottom: 0.25rem;
+}
+
+.position-title .company {
+    font-size: 0.9rem;
+    color: #22c55e;
+    font-weight: 500;
+}
+
+.position-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.position-details .location {
+    font-size: 0.95rem;
+    color: #4a5568;
+    font-weight: 500;
+}
+
+.position-details .duration {
+    font-size: 0.85rem;
+    color: #718096;
+    font-weight: 400;
+}
+
+.social-links-compact {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-start;
+    margin-top: 1rem;
+}
+
+.social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: rgba(79, 70, 229, 0.1);
+    color: #4f46e5;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.social-icon:hover {
+    background: #4f46e5;
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(79, 70, 229, 0.3);
+}
+
 .about-text h3 {
     font-family: 'Poppins', sans-serif;
     font-size: 1.75rem;
@@ -596,6 +709,30 @@ section {
     font-size: 1.1rem;
     line-height: 1.8;
     color: #4a5568;
+}
+
+.about-text .professional-info {
+    margin-top: 2rem;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-text .professional-info:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.about-text .professional-info h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+    color: #1a202c;
+    font-weight: 600;
 }
 
 .achievements,
@@ -618,6 +755,7 @@ section {
 .achievements h3,
 .education-counter h3 {
     font-family: 'Poppins', sans-serif;
+    font-size: 1.25rem;
     margin-bottom: 1.5rem;
     color: #1a202c;
     font-weight: 600;
@@ -1068,14 +1206,60 @@ body.dark-mode .about-text p {
     color: #cbd5e1;
 }
 
-body.dark-mode .achievements,
-body.dark-mode .education-counter {
+body.dark-mode .about-text .professional-info {
     background: rgba(30, 41, 59, 0.8);
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-body.dark-mode .education-counter h3 {
+body.dark-mode .about-text .professional-info h3 {
     color: #f1f5f9;
+}
+
+body.dark-mode .achievements,
+body.dark-mode .education-counter,
+body.dark-mode .professional-info {
+    background: rgba(30, 41, 59, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .education-counter h3,
+body.dark-mode .professional-info h3 {
+    color: #f1f5f9;
+}
+
+body.dark-mode .position-item {
+    background: rgba(34, 197, 94, 0.1);
+    border-left-color: #22c55e;
+}
+
+body.dark-mode .position-item:hover {
+    background: rgba(34, 197, 94, 0.15);
+}
+
+body.dark-mode .position-title .role {
+    color: #f1f5f9;
+}
+
+body.dark-mode .position-title .company {
+    color: #34d399;
+}
+
+body.dark-mode .position-details .location {
+    color: #94a3b8;
+}
+
+body.dark-mode .position-details .duration {
+    color: #64748b;
+}
+
+body.dark-mode .social-icon {
+    background: rgba(79, 70, 229, 0.2);
+    color: #818cf8;
+}
+
+body.dark-mode .social-icon:hover {
+    background: #4f46e5;
+    color: white;
 }
 
 body.dark-mode .education-item {
@@ -1543,6 +1727,11 @@ body.dark-mode .inline-link:hover {
         max-width: 500px;
     }
     
+    .about-text .professional-info {
+        margin: 2rem auto;
+        max-width: 500px;
+    }
+    
     .skills-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 2rem;
@@ -1692,8 +1881,16 @@ body.dark-mode .inline-link:hover {
         padding: 2rem 1.5rem;
     }
     
+    .about-text .professional-info {
+        margin: 2rem auto;
+        max-width: 500px;
+        padding: 2rem 1.5rem;
+    }
+    
+    .about-text .professional-info h3,
     .achievements h3,
     .education-counter h3 {
+        font-size: 1.2rem;
         text-align: center;
         margin-bottom: 1.2rem;
     }
@@ -1922,6 +2119,17 @@ body.dark-mode .inline-link:hover {
         line-height: 1.6;
     }
     
+    .about-text .professional-info {
+        margin-top: 1.5rem;
+        padding: 1.5rem 1rem;
+    }
+    
+    .about-text .professional-info h3 {
+        font-size: 1.1rem;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+    
     .achievements,
     .education-counter {
         padding: 1.5rem 1rem;
@@ -1939,21 +2147,36 @@ body.dark-mode .inline-link:hover {
         padding: 0.6rem 0;
     }
 
-    .education-item {
+    .education-item,
+    .position-item {
         margin-bottom: 1rem;
         padding: 1rem;
     }
 
-    .education-level .degree {
+    .education-level .degree,
+    .position-title .role {
         font-size: 1rem;
     }
 
-    .education-level .field {
+    .education-level .field,
+    .position-title .company {
         font-size: 0.85rem;
     }
 
-    .education-details .institution {
+    .education-details .institution,
+    .position-details .location {
         font-size: 0.9rem;
+    }
+    
+    .social-links-compact {
+        justify-content: center;
+        gap: 0.8rem;
+        margin-top: 1.2rem;
+    }
+    
+    .social-icon {
+        width: 35px;
+        height: 35px;
     }
 
     .education-details .year {
