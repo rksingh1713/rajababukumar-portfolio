@@ -221,7 +221,7 @@ function animateSkillTags() {
 function typeWriter() {
     if (!tagline) return;
     
-    const taglineText = "Full Stack Developer | Problem Solver | Tech Enthusiast";
+    const taglineText = "Software Engineer | Problem Solver | Tech Enthusiast";
     tagline.textContent = '';
     let i = 0;
     

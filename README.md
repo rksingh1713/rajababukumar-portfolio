@@ -1,6 +1,6 @@
 # Rajababu Kumar - Portfolio Website
 
-A modern, responsive portfolio website showcasing my skills, projects, and professional experience as a Full Stack Developer.
+A modern, responsive portfolio website showcasing my skills, projects, and professional experience as a Software Engineer.
 
 ## 🚀 Live Demo
 
@@ -24,7 +24,7 @@ Visit the live website: [rajababukumar.dev](https://rajababukumar.dev)
 
 ## 📖 About
 
-This is my personal portfolio website built to showcase my skills, projects, and professional journey as a Full Stack Developer. The website features a modern design with smooth animations, responsive layout, and optimized performance across all devices.
+This is my personal portfolio website built to showcase my skills, projects, and professional journey as a Software Engineer. The website features a modern design with smooth animations, responsive layout, and optimized performance across all devices.
 
 ## ✨ Features
 
