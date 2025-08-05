@@ -216,6 +216,7 @@ html {
     position: relative;
     overflow: hidden;
     margin-top: 0;
+    margin-bottom: 0;
     padding: 0 20px;
 }
 
@@ -570,6 +571,9 @@ section {
 /* About Section */
 .about {
     background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    padding: 120px 0;
+    position: relative;
+    z-index: 1;
 }
 
 .about-content {
@@ -1484,6 +1488,10 @@ body.dark-mode .inline-link:hover {
         gap: 3rem;
     }
     
+    .about {
+        padding: 100px 0;
+    }
+    
     section {
         padding: 90px 0;
     }
@@ -1523,6 +1531,10 @@ body.dark-mode .inline-link:hover {
         grid-template-columns: 1fr;
         gap: 3rem;
         text-align: center;
+    }
+    
+    .about {
+        padding: 100px 0;
     }
     
     .achievements,
@@ -1658,6 +1670,10 @@ body.dark-mode .inline-link:hover {
         grid-template-columns: 1fr;
         gap: 2.5rem;
         text-align: left;
+    }
+    
+    .about {
+        padding: 90px 0;
     }
     
     .about-text h3 {
