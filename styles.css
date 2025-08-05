@@ -1019,6 +1019,15 @@ section {
     margin-bottom: 3rem;
 }
 
+/* .unique-message {
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
+  font-size: 16px;
+  line-height: 1.6;
+} */
+
+
 .contact-info h3 {
     font-family: 'Poppins', sans-serif;
     margin-bottom: 1.5rem;
@@ -1170,19 +1179,18 @@ section {
 .contact-icon {
     width: 50px;
     height: 50px;
-    background: linear-gradient(135deg, #4f46e5, #7c3aed);
+    /* background: linear-gradient(135deg, #4f46e5, #7c3aed); */
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0 auto 1rem;
-    color: white;
+    color: #7c3aed;
     transition: all 0.3s ease;
 }
 
 .contact-card:hover .contact-icon {
     transform: scale(1.1) rotateY(180deg);
-    box-shadow: 0 15px 35px rgba(79, 70, 229, 0.4);
 }
 
 .contact-card h4 {
@@ -1637,8 +1645,7 @@ body.dark-mode .contact-footer {
     border-color: rgba(255, 255, 255, 0.1);
 }
 
-/* Dark mode styles for contact section */
-}
+
 
 body.dark-mode .contact-section h3 {
     color: #f1f5f9;
@@ -1662,7 +1669,7 @@ body.dark-mode .contact-card:hover {
 }
 
 body.dark-mode .contact-card svg {
-    fill: #60a5fa;
+    color: #fff;
 }
 
 body.dark-mode .contact-card h4 {
