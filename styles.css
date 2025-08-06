@@ -63,6 +63,16 @@ nav {
     align-items: center;
 }
 
+.logo a {
+    text-decoration: none; /* underline hata dega */
+    color: inherit; /* logo ka jo color hai wahi rahega */
+}
+
+.logo a:hover {
+    color: inherit; /* hover pe bhi color change na ho */
+}
+
+
 .logo {
     font-family: 'Poppins', sans-serif;
     font-size: 1.6rem;
