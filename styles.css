@@ -2585,6 +2585,10 @@ body.dark-mode .inline-link:hover {
 
 /* Mobile Small (320px - 480px) */
 @media (max-width: 480px) {
+    .profile-image {
+        width: clamp(500px, 60vw, 700px);
+        height: clamp(500px, 60vw, 700px);
+    }
     .mobile-menu-toggle {
         display: flex;
     }
