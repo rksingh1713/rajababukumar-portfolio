@@ -1,7 +1,4 @@
-.certifications {
-    background: #fff;
-    padding: 80px 0 60px 0;
-}
+
 .certification-org-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -106,7 +103,7 @@
 
 /* Dark mode for certifications section */
 body.dark-mode .certifications {
-    background: #0f172a;
+    /* background: #0f172a; */
 }
 body.dark-mode .certification-org-card {
     background: rgba(30, 41, 59, 0.95);
@@ -140,7 +137,6 @@ body.dark-mode .view-more-btn:hover {
 }
 /* Certifications Section (Redesigned) */
 .certifications {
-    background: #fff;
     padding: 80px 0 60px 0;
 }
 .certification-org-grid {
