@@ -120,7 +120,74 @@
                         </div>
                     </div>
                 </div>
-                
+                <!-- Certifications Section (Redesigned) -->
+                <section id="certifications" class="certifications">
+                    <h3 class="section-title">Certifications</h3>
+                    <div class="certification-org-grid">
+                        <!-- Organization 1 -->
+                        <div class="certification-org-card">
+                            <div class="org-header">
+                                <img src="https://cdn.worldvectorlogo.com/logos/hackerrank.svg" alt="HackerRank" class="org-logo" />
+                                <h4>HackerRank</h4>
+                            </div>
+                            <ul class="cert-list">
+                                <li>Python (Basic) <span>2024</span></li>
+                                <li>SQL (Intermediate) <span>2024</span></li>
+                                <li>Problem Solving (Basic) <span>2023</span></li>
+                                <li class="more-certs">Java (Basic) <span>2023</span></li>
+                                <li class="more-certs">C++ (Basic) <span>2023</span></li>
+                                <li class="more-certs">Rest API (Intermediate) <span>2023</span></li>
+                            </ul>
+                            <button class="view-more-btn" onclick="toggleCerts(this)">View More Certifications</button>
+                        </div>
+                        <!-- Organization 2 -->
+                        <div class="certification-org-card">
+                            <div class="org-header">
+                                <img src="https://cdn.worldvectorlogo.com/logos/amazon-web-services-1.svg" alt="AWS" class="org-logo" />
+                                <h4>Amazon Web Services</h4>
+                            </div>
+                            <ul class="cert-list">
+                                <li>AWS Cloud Practitioner Essentials <span>2023</span></li>
+                                <li>Machine Learning Foundations <span>2024</span></li>
+                                <li>Serverless Basics <span>2024</span></li>
+                                <li class="more-certs">AWS Security Fundamentals <span>2024</span></li>
+                                <li class="more-certs">AWS Data Analytics <span>2024</span></li>
+                                <li class="more-certs">AWS Developer Tools <span>2024</span></li>
+                            </ul>
+                            <button class="view-more-btn" onclick="toggleCerts(this)">View More Certifications</button>
+                        </div>
+                        <!-- Organization 3 -->
+                        <div class="certification-org-card">
+                            <div class="org-header">
+                                <img src="https://cdn.worldvectorlogo.com/logos/coursera-1.svg" alt="Coursera" class="org-logo" />
+                                <h4>Coursera</h4>
+                            </div>
+                            <ul class="cert-list">
+                                <li>Google Data Analytics <span>2024</span></li>
+                                <li>Python for Everybody <span>2023</span></li>
+                                <li>AI for Everyone <span>2023</span></li>
+                                <li class="more-certs">Deep Learning Specialization <span>2024</span></li>
+                                <li class="more-certs">Web Development <span>2023</span></li>
+                                <li class="more-certs">Cloud Computing <span>2023</span></li>
+                            </ul>
+                            <button class="view-more-btn" onclick="toggleCerts(this)">View More Certifications</button>
+                        </div>
+                        <!-- Add more organizations as needed, 3 per row -->
+                    </div>
+                </section>
+                <script>
+                function toggleCerts(btn) {
+                  const card = btn.closest('.certification-org-card');
+                  const moreCerts = card.querySelectorAll('.more-certs');
+                  const expanded = btn.classList.toggle('expanded');
+                  moreCerts.forEach(li => li.style.display = expanded ? 'list-item' : 'none');
+                  btn.textContent = expanded ? 'View Less' : 'View More Certifications';
+                }
+                // Hide extra certs by default
+                document.addEventListener('DOMContentLoaded', function() {
+                  document.querySelectorAll('.more-certs').forEach(li => li.style.display = 'none');
+                });
+                </script>
         </section>
     </main>
 
